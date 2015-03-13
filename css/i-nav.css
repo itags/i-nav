@@ -1,0 +1,106 @@
+/* ======================================================================= */
+/* ======================================================================= */
+/* ======================================================================= */
+/* Definition of itag shadow-css is done by defining a `dummy` css-rule    */
+/* for the dummy-element: `itag-css` --> its property (also dummy) `i-tag` /*
+/* will define which itag will be css-shadowed                             /*
+/* ======================================================================= */
+itag-css {
+    i-tag: i-nav;  /* set the property-value to the proper itag */
+}
+/* ======================================================================= */
+/* ======================================================================= */
+/* ======================================================================= */
+
+
+/* ================================= */
+/* set invisiblity when not rendered */
+/* ================================= */
+i-nav:not(.itag-rendered) {
+    /* don't set visibility to hidden --> you cannot set a focus on those items */
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    z-index: -1;
+}
+
+i-nav:not(.itag-rendered) * {
+    opacity: 0 !important;
+}
+/* ================================= */
+
+i-nav,
+i-nav >span,
+i-nav >span >span,
+i-nav >span >span >span {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+i-nav[horizontal="true"] >span >span >span {
+    display: inline-block;
+}
+
+i-nav span.menuitem >a {
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+i-nav span.separator {
+    background-color: #ccc;
+}
+
+i-nav[horizontal="true"] span.separator {
+    width: 1px;
+    height: 1.3em;
+    margin: 0 .3em ;
+    vertical-align: middle;
+}
+
+i-nav[horizontal="false"] span.separator {
+    height: 1px;
+    margin: .3em 0;
+    width: 100%;
+}
+
+i-nav span.heading,
+i-nav span.menuitem {
+    padding: .5em 1em;
+    vertical-align: middle;
+}
+
+i-nav span.heading {
+    white-space: nowrap;
+    color: #000;
+}
+
+i-nav span.menuitem >a,
+i-nav span.menuitem >a:visited {
+    color: #777;
+}
+
+i-nav span.menuitem.selected >a,
+i-nav span.menuitem.selected >a:visited {
+    color: #000;
+}
+
+i-nav span.menuitem:hover {
+    background-color: #eee;
+}
+
+i-nav span.menuitem >a:hover {
+    color: #000;
+}
+
+i-nav span.menuitem.disabled {
+    opacity: .5;
+}
