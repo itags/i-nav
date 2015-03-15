@@ -88,8 +88,8 @@ i-nav span.menuitem >a:visited {
     color: #777;
 }
 
-i-nav span.menuitem.selected >a,
-i-nav span.menuitem.selected >a:visited {
+i-nav span.menuitem[selected="true"] >a,
+i-nav span.menuitem[selected="true"] >a:visited {
     color: #000;
 }
 

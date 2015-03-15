@@ -37,19 +37,12 @@ IO.xhrPageSupport = function() {return true;};
             var anchorNode = e.target,
                 parentNode = anchorNode.getParent(),
                 element, model, containerNode, index;
-console.warn('after focus');
             if (parentNode.getAttr('disabled')!=='true') {
-console.warn('after focus continue');
                 element = anchorNode.inside('i-nav'),
                 model = element.model;
                 containerNode = parentNode.getParent();
-console.warn(parentNode);
-console.warn(containerNode);
-
                 index = containerNode.getAll('>span').indexOf(parentNode);
-console.warn('index: '+index);
                 model.items.forEach(function(item, i) {
-console.warn('i: '+i);
                     item.selected = (i===index);
                 });
             }
@@ -69,7 +62,6 @@ console.warn('i: '+i);
                     model = element.model,
                     nodes = designNode.getAll('option, hr'),
                     items = [];
-
                 if (!model.hasKey('items')) {
                     nodes.forEach(function(node) {
                         var item, submenu;
@@ -115,7 +107,6 @@ console.warn('i: '+i);
             },
 
             sync: function() {
-console.warn('syncing');
                 var element = this,
                     menuContainerNode = element.getElement('>span >span'),
                     model = element.model,
