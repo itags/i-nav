@@ -72,29 +72,34 @@ i-nav[horizontal="false"] span.separator {
     width: 100%;
 }
 
-i-nav span.heading,
+i-nav span.heading {
+    white-space: nowrap;
+    padding: .5em 1em;
+    vertical-align: middle;
+    color: #000;
+}
+
 i-nav span.menuitem {
+    padding: 0;
+}
+
+i-nav span.menuitem >a {
+    color: #777;
     padding: .5em 1em;
     vertical-align: middle;
 }
 
-i-nav span.heading {
-    white-space: nowrap;
-    color: #000;
-}
-
-i-nav span.menuitem >a,
 i-nav span.menuitem >a:visited {
     color: #777;
+}
+
+i-nav span.menuitem:not(.disabled) >a:hover {
+    background-color: #eee;
 }
 
 i-nav span.menuitem[selected="true"] >a,
 i-nav span.menuitem[selected="true"] >a:visited {
     color: #000;
-}
-
-i-nav span.menuitem:hover {
-    background-color: #eee;
 }
 
 i-nav span.menuitem >a:hover {
