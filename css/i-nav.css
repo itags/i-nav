@@ -81,9 +81,17 @@ i-nav span.heading {
 
 i-nav span.menuitem {
     padding: 0;
+    line-height: 2em;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 i-nav span.menuitem >a {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     color: #777;
     padding: .5em 1em;
     vertical-align: middle;

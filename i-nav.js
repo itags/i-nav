@@ -17,6 +17,7 @@ module.exports = function (window) {
 IO.xhrPageSupport = function() {return true;};
     if (!window.ITAGS[itagName]) {
 
+/*
         if (IO.xhrPageSupport()) {
             Event.before('anchorclick', function(e) {
                 var url;
@@ -32,7 +33,7 @@ IO.xhrPageSupport = function() {return true;};
                 // );
             }, 'i-nav a');
         }
-
+*/
         Event.after('focus', function(e) {
             var anchorNode = e.target,
                 parentNode = anchorNode.getParent(),
