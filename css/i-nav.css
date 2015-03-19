@@ -31,9 +31,9 @@ i-nav:not(.itag-rendered) * {
 /* ================================= */
 
 i-nav,
-i-nav >span,
-i-nav >span >span,
-i-nav >span >span >span {
+i-nav >div,
+i-nav >div >div,
+i-nav >div >div >div {
     margin: 0;
     padding: 0;
     position: relative;
@@ -43,11 +43,11 @@ i-nav >span >span >span {
     box-sizing: border-box;
 }
 
-i-nav[horizontal="true"] >span >span >span {
+i-nav[horizontal="true"] >div >div >div {
     display: inline-block;
 }
 
-i-nav span.menuitem >a {
+i-nav div.menuitem >a {
     text-decoration: none;
     white-space: nowrap;
     padding: 0;
@@ -55,31 +55,31 @@ i-nav span.menuitem >a {
     height: 100%;
 }
 
-i-nav span.separator {
+i-nav div.separator {
     background-color: #ccc;
 }
 
-i-nav[horizontal="true"] span.separator {
+i-nav[horizontal="true"] div.separator {
     width: 1px;
     height: 1.3em;
     margin: 0 .3em ;
     vertical-align: middle;
 }
 
-i-nav[horizontal="false"] span.separator {
+i-nav[horizontal="false"] div.separator {
     height: 1px;
     margin: .3em 0;
     width: 100%;
 }
 
-i-nav span.heading {
+i-nav div.heading {
     white-space: nowrap;
     padding: .5em 1em;
     vertical-align: middle;
     color: #000;
 }
 
-i-nav span.menuitem {
+i-nav div.menuitem {
     padding: 0;
     line-height: 2em;
     vertical-align: middle;
@@ -88,32 +88,35 @@ i-nav span.menuitem {
     box-sizing: border-box;
 }
 
-i-nav span.menuitem >a {
+i-nav div.menuitem >a {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     color: #777;
-    padding: .5em 1em;
+    padding: 0 1em;
+    display: block;
+    height: 100%;
     vertical-align: middle;
 }
 
-i-nav span.menuitem >a:visited {
+i-nav div.menuitem >a:visited {
     color: #777;
 }
 
-i-nav span.menuitem:not(.disabled) >a:hover {
+i-nav div.menuitem:not(.disabled):hover {
     background-color: #eee;
+    cursor: pointer;
 }
 
-i-nav span.menuitem[selected="true"] >a,
-i-nav span.menuitem[selected="true"] >a:visited {
+i-nav div.menuitem:hover >a {
     color: #000;
 }
 
-i-nav span.menuitem >a:hover {
+i-nav div.menuitem[selected="true"] >a,
+i-nav div.menuitem[selected="true"] >a:visited {
     color: #000;
 }
 
-i-nav span.menuitem.disabled {
+i-nav div.menuitem.disabled {
     opacity: .5;
 }

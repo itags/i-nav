@@ -42,7 +42,7 @@ IO.xhrPageSupport = function() {return true;};
                 element = anchorNode.inside('i-nav'),
                 model = element.model;
                 containerNode = parentNode.getParent();
-                index = containerNode.getAll('>span').indexOf(parentNode);
+                index = containerNode.getAll('>div').indexOf(parentNode);
                 model.items.forEach(function(item, i) {
                     item.selected = (i===index);
                 });
@@ -91,7 +91,9 @@ IO.xhrPageSupport = function() {return true;};
                     });
                     model.items = items;
                 }
-                element.scrollModel = {};
+                element.scrollModel = {
+                    y: false // vertical menu never scrollable
+                };
             },
 
             horizontal: true,
@@ -100,16 +102,16 @@ IO.xhrPageSupport = function() {return true;};
                 // set the content:
                 var element = this,
                     masterCont = element.setHTML(
-                        '<span>'+
-                        '<span plugin-fm="true" fm-manage="a" fm-keyup="'+KEY_UP+'" fm-keydown="'+KEY_DOWN+'" fm-enter="'+KEY_ENTER+'" fm-keyleave="'+KEY_LEAVE+'" fm-noloop="true"></span>'+
-                        '</span>'
+                        '<div>'+
+                        '<div plugin-fm="true" fm-manage="a" fm-keyup="'+KEY_UP+'" fm-keydown="'+KEY_DOWN+'" fm-enter="'+KEY_ENTER+'" fm-keyleave="'+KEY_LEAVE+'" fm-noloop="true"></div>'+
+                        '</div>'
                     );
                 masterCont.plug('scroll', element.scrollModel);
             },
 
             sync: function() {
                 var element = this,
-                    menuContainerNode = element.getElement('>span >span'),
+                    menuContainerNode = element.getElement('>div >div'),
                     model = element.model,
                     scrollModel = element.scrollModel,
                     content = '';
@@ -117,13 +119,12 @@ IO.xhrPageSupport = function() {return true;};
                 scrollModel['scroll-light'] = model['scroll-light'];
                 scrollModel['scroll-autohide'] = model['scroll-autohide'];
                 scrollModel.x = model.horizontal;
-                scrollModel.y = !model.horizontal;
                 model.items.forEach(function(item) {
                     if (item.separator) {
-                        content += '<span class="separator"></span>';
+                        content += '<div class="separator"></div>';
                     }
                     else {
-                        content += '<span';
+                        content += '<div';
                         item.expanded && (content+=' expanded="true"');
                         item.selected && (content+=' selected="true"');
                         item.disabled && (content+=' disabled="true"');
@@ -137,7 +138,7 @@ IO.xhrPageSupport = function() {return true;};
                             content += item.content;
                         }
                         item.submenu && (content+=item.submenu);
-                        content += '</span>';
+                        content += '</div>';
                     }
                 });
                 menuContainerNode.setHTML(content);
